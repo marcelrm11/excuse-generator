@@ -7,20 +7,21 @@ import "./assets/img/4geeks.ico";
 
 window.onload = function() {
   //write your code here
-  let who = ["The dog", "My grandma", "His turtle", "My bird"];
-  let action = ["ate", "peed", "crushed", "broke"];
-  let what = ["my homework", "the keys", "the car"];
-  let when = [
+  let parts = {
+    who: ["The dog", "My grandma", "His turtle", "My bird"],
+    action: ["ate", "peed", "crushed", "broke"],
+    what: ["my homework", "the keys", "the car"],
+    when: [
     "before the class",
     "right on time",
     "when I finished",
     "during my lunch",
     "while I was praying"
-  ];
-  let part1 = who[Math.floor(Math.random() * who.length)];
-  let part2 = action[Math.floor(Math.random() * action.length)];
-  let part3 = what[Math.floor(Math.random() * what.length)];
-  let part4 = when[Math.floor(Math.random() * when.length)];
-  let sentence = `${part1} ${part2} ${part3} ${part4}.`;
-  document.getElementById("excuse").innerHTML = sentence;
+    ]
+  }
+  document.getElementById("excuse").innerHTML = parts.map(part => randomPick(part)).join(' ');
 };
+
+function randomPick(array) {
+  return array[Math.floor(Math.random() * array.length)];
+}
