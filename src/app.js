@@ -12,14 +12,16 @@ window.onload = function() {
     action: ["ate", "peed", "crushed", "broke"],
     what: ["my homework", "the keys", "the car"],
     when: [
-    "before the class",
-    "right on time",
-    "when I finished",
-    "during my lunch",
-    "while I was praying"
+      "before the class",
+      "right on time",
+      "when I finished",
+      "during my lunch",
+      "while I was praying"
     ]
-  }
-  document.getElementById("excuse").innerHTML = parts.map(part => randomPick(part)).join(' ');
+  };
+  document.getElementById("excuse").innerHTML = Object.values(parts)
+    .map(part => randomPick(part))
+    .join(" ");
 };
 
 function randomPick(array) {
